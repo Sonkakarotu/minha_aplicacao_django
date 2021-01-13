@@ -1,0 +1,153 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Aplicação em DJANGO</title>
+</head>
+<body>
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CAMINHO DOS PROJETOS LOCAIS:</strong><br />
+cd C:\Users\Alex\projetos\</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA VER SE ESTA INSTALADO O DJANGO:</strong><br />
+python -m django --version</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA VER SE ESTA INSTALADO O AMBIENTE VIRTUAL:</strong><br />
+virtualenv --version</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA INSTALAR O AMBIENTE VIRTUAL:</strong><br />
+pip install virtualenv</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA CRIAR UMA PASTA:</strong><br />
+mkdir ambientes_virtuais</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA CRIAR UM AMBIENTE VIRTUAL:</strong><br />
+virtualenv.exe ambientes_virtuais\virtual_01</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA ATIVAR O AMBIENTE VIRTUAL:</strong><br />
+ambientes_virtuais\virtual_01\Scripts\activate</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># INSTALAR DJANGO DENTRO AMBIENTE VIRTUAL:</strong><br />
+pip install django</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA VER SE ESTA INSTALADO O DJANGO:</strong><br />
+python -m django --version</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA CRIAR UM PROJETO:</strong><br />
+django-admin startproject mysite</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># RODAR O SERVIDOR NA PORTA 8080</strong><br />
+python manage.py runserver 8080</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong>-----------------------------------------------</strong><br />
+<strong># PARA DEIXAR A PAGINA EM PT E HORA CERTA</strong>:</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong>-&gt; mysite/setting.py&nbsp;</strong></span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif">LANGUAGE_CODE = &#39;pt-BR&#39;</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif">TIME_ZONE = &#39;America/Sao_Paulo&#39;</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong>--------------------------------------------------<br />
+# COME&Ccedil;ANDO O PROJETO!!!</strong><br />
+<strong>Comece no tutorial 01 e vai at&eacute; 07...</strong></span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># TODO CODIGO ESTAR&Aacute; NO SITE DOCS DJANGO 3.1:</strong><br />
+https://docs.djangoproject.com/pt-br/3.1/intro/tutorial01/</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># ABRA SEU PROJETO NO VS CODE:</strong><br />
+code .</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CRIANDO A APLICA&Ccedil;&Atilde;O DE ENQUETES: POLLS:</strong><br />
+python manage.py startapp polls</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># COMANDO PARA CRIAR AS TABELAS BANCO DE DADOS:</strong><br />
+python manage.py migrate</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA CRIAR MIGRA&Ccedil;&Otilde;ES PARA SUAS MODIFICA&Ccedil;&Otilde;ES NO MODELOS EM POLLS:</strong><br />
+python manage.py makemigrations polls</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># RODANDO ESSA MIGRA&Ccedil;&Atilde;O NO BANCO SQL:</strong><br />
+python manage.py sqlmigrate polls 0001</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA CONECTAR NA SHELL DO PYTHON:</strong><br />
+python manage.py shell</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong>-&gt; SHELL CONECTADA: (InteractiveConsole)<br />
+-----------------------------------------------<br />
+-&gt; COMANDO DO BANCO DE DADOS:</strong></span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># IMPORTANDO A CLASSE CHOICE, QUESTION:</strong><br />
+&gt;&gt;&gt; from polls.models import Choice, Question</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># VER TODAS AS PERGUNDAS:</strong><br />
+&gt;&gt;&gt; Question.objects.all()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># IMPORTA&Ccedil;&Atilde;O DO TIMEZONE:</strong><br />
+&gt;&gt;&gt; from django.utils import timezone</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># DECLARANDO UMA VARIAVEL PARA RECEBER A PERGUNTA:</strong><br />
+&gt;&gt;&gt; q = Question(question_text=&quot;O que ha de novo?&quot;, pub_date=timezone.now())</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># SALVANDO ESSA VARIAVEL NO BANCO:</strong><br />
+&gt;&gt;&gt; q.save()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># AGORA VAMOS VER A ID DESSA VARIAVEL NO BANCO:</strong><br />
+&gt;&gt;&gt; q.id</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># EXIBINDO NOSSO TEXTO:</strong><br />
+&gt;&gt;&gt; q.question_text</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># EXIBINDO A HORA:</strong><br />
+&gt;&gt;&gt; q.pub_date</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># ALTERANDO NOSSO TEXTO:</strong><br />
+&gt;&gt;&gt; q.question_text = &quot;O que para cima?&quot;</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># SALVANDO ESSA VARIAVEL NO BANCO:</strong><br />
+&gt;&gt;&gt; q.save()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># VER TODAS AS PERGUNDAS:</strong><br />
+&gt;&gt;&gt; Question.objects.all()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># MOSTRANDO POR FILTROS DE ID:</strong><br />
+&gt;&gt;&gt; Question.objects.filter(id=1)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># MOSTRANDO POR FILTROS DE TEXTO:</strong><br />
+&gt;&gt;&gt; Question.objects.filter(question_text__startswith=&#39;O que&#39;)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA VER AS PERGUNTAS POR ANO PRIMEIRO IMPORTE TIMEZONE:</strong><br />
+&gt;&gt;&gt; from django.utils import timezone</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># DECLARA&Ccedil;&Atilde;O DA VARIAVEL PARA RECEBER ANO:</strong><br />
+&gt;&gt;&gt; current_year = timezone.now().year</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PEGANDO A DATA EO ANO PARA EXIBIR TEXTO:</strong><br />
+&gt;&gt;&gt; Question.objects.get(pub_date__year=current_year)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CRIANDO UMA CAIXA DE SELE&Ccedil;&Atilde;O EM 1&ordm; CHOICE:</strong><br />
+&gt;&gt;&gt; q.choice_set.create(choice_text=&#39;Terra&#39;, votes=0)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CRIANDO UMA CAIXA DE SELE&Ccedil;&Atilde;O EM 2&ordm; CHOICE:</strong><br />
+&gt;&gt;&gt; q.choice_set.create(choice_text=&#39;Ceu&#39;, votes=0)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CRIANDO VARIAVEL PARA RECEBER A SELE&Ccedil;&Atilde;O:</strong><br />
+&gt;&gt;&gt; c = q.choice_set.create(choice_text=&#39;Apenas hacking de novo&#39;, votes=0)</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># CONTANDO OS SET:</strong><br />
+&gt;&gt;&gt; q.choice_set.count()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong># PARA SAIR DA SHELL:</strong><br />
+&gt;&gt;&gt; quit()</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif"><strong>--------------------------------------------------------------------<br />
+# CRIANDO UM ADMINISTRADOR:</strong><br />
+python manage.py createsuperuser<br />
+alex<br />
+alex123456</span></p>
+
+
+</body>
+</html>
